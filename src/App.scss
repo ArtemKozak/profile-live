@@ -1,0 +1,19 @@
+.App {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  a {
+    text-decoration: none;
+    color: #282c34;
+    transition: 0.5s;
+
+    &:hover {
+      color: #7b7b87;
+      transition: 0.5s;
+    }
+  }
+}
