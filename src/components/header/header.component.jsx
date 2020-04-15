@@ -1,4 +1,6 @@
 import React from "react";
+import {connect} from "react-redux";
+
 import {HeaderBlock, LinkContainer, HeaderLink} from "./header.styles";
 import { auth } from '../../firebase/firebase.utils';
 
@@ -18,4 +20,8 @@ const Header = ({currentUser}) => (
     </HeaderBlock>
 );
 
-export default Header;
+const mapStateToProps = state => ({
+    currentUser: state.user.currentUser
+});
+
+export default connect(mapStateToProps)(Header);
