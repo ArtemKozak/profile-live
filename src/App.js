@@ -8,24 +8,37 @@ import Profile from "./pages/profile/profile.component";
 import SignInSignUp from "./pages/sign-in-sign-up/sign-in-sign-up.component";
 import Header from "./components/header/header.component";
 
-import {auth} from "./firebase/firebase.utils";
+import {auth, createUserProfileDocument} from "./firebase/firebase.utils";
 
 class App extends React.Component {
     constructor() {
         super();
 
         this.state = {
-            CurrentUser: null
+            currentUser: null
         }
     }
 
     unsubscribeFromAuth = null;
 
     componentDidMount() {
-        this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
-            this.setState({CurrentUser: user});
+        this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+            if (userAuth) {
+                const userRef = await createUserProfileDocument(userAuth);
 
-            console.log(user);
+                userRef.onSnapshot(snapShot => {
+                    this.setState({
+                        currentUser: {
+                            id: snapShot.id,
+                            ...snapShot.data()
+                        }
+                    }, () => {
+                        console.log(this.state);
+                    });
+                });
+            }
+
+            this.setState({currentUser: userAuth})
         });
     };
 
@@ -36,11 +49,11 @@ class App extends React.Component {
     render() {
         return (
             <div className={"App"}>
-                <Header currentUser={this.state.CurrentUser}/>
+                <Header currentUser={this.state.currentUser}/>
                 <Switch>
                     <Route exact path='/' component={Home}/>
                     <Route exact path='/profile'  component={Profile}/>
-                    {this.state.CurrentUser ? (<Redirect to='/profile'/>) : (<Route exact path='/sign-in' component={SignInSignUp}/>)}
+                    {this.state.currentUser ? (<Redirect to='/profile'/>) : (<Route exact path='/sign-in' component={SignInSignUp}/>)}
                 </Switch>
             </div>
         );

@@ -8,7 +8,7 @@ export const SignInContainer = styled.div`
 `;
 
 export const OrLineContainer = styled.div`
-  margin: 20px 0 !important;
+  margin: 20px 0;
   width: 100%;
   display: flex;
   flex-direction: line;
@@ -22,7 +22,7 @@ export const OrLineContainer = styled.div`
 
 
 export const SingInAsContainer = styled.div`
-  margin: 0 0 18px 10px !important;
+  margin: 0 0 18px 10px;
   width: 100%;
   display: flex;
   flex-direction: line;

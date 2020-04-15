@@ -2,7 +2,13 @@ import React from 'react';
 
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
-import {ButtonsBarContainer, OrLineContainer, SignInContainer, SignInTitle, SingInAsContainer} from './sign-in.styles';
+import {
+    ButtonsBarContainer,
+    OrLineContainer,
+    SignInContainer,
+    SignInTitle,
+    SingInAsContainer
+} from './sign-in.styles';
 
 import {
     // emailSignInStart,

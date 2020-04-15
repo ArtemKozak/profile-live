@@ -1,9 +1,9 @@
 import React from "react";
 import {ContainerBlock} from "../../components/container/container.styles";
 
-const Profile = () => (
+const Profile = (currentUser) => (
     <ContainerBlock>
-        <p>Hello world!</p>
+        {/*<p>{currentUser.displayName}</p>*/}
     </ContainerBlock>
 );
 
