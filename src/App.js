@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, Switch} from 'react-router-dom';
+import {Redirect, Route, Switch} from 'react-router-dom';
 
 import './App.scss';
 
@@ -36,11 +36,11 @@ class App extends React.Component {
     render() {
         return (
             <div className={"App"}>
-                <Header/>
+                <Header currentUser={this.state.CurrentUser}/>
                 <Switch>
                     <Route exact path='/' component={Home}/>
-                    <Route exact path='/profile' component={Profile}/>
-                    <Route exact path='/sign-in' component={SignInSignUp}/>
+                    <Route exact path='/profile'  component={Profile}/>
+                    {this.state.CurrentUser ? (<Redirect to='/profile'/>) : (<Route exact path='/sign-in' component={SignInSignUp}/>)}
                 </Switch>
             </div>
         );

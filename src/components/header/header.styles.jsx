@@ -20,4 +20,5 @@ export const LinkContainer = styled.div`
 
 export const HeaderLink = styled(Link)`
   margin: 0 auto;
+  cursor: pointer;
 `;
