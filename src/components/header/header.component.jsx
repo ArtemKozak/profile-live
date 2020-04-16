@@ -1,8 +1,8 @@
 import React from "react";
 import {connect} from "react-redux";
 
-import {HeaderBlock, LinkContainer, HeaderLink} from "./header.styles";
-import { auth } from '../../firebase/firebase.utils';
+import {HeaderBlock, HeaderLink, LinkContainer} from "./header.styles";
+import {auth} from '../../firebase/firebase.utils';
 
 const Header = ({currentUser}) => (
     <HeaderBlock>

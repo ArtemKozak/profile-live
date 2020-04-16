@@ -48,6 +48,38 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
     return userRef;
 };
 
+export const getUsers = async () => {
+    const userRef = firestore.collection('user');
+
+    const snapShot = await userRef.get();
+
+    const transformedUsers = snapShot.docs.map(doc => {
+        const {
+            uid,
+            displayName,
+            photoURL,
+            email,
+            emailVerified,
+            phoneNumber,
+            isAnonymous,
+            createdAt
+        } = doc.data();
+
+        return {
+            uid,
+            displayName,
+            photoURL,
+            email,
+            emailVerified,
+            phoneNumber,
+            isAnonymous,
+            createdAt
+        };
+    });
+    await console.log(transformedUsers)
+    return transformedUsers;
+};
+
 
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();

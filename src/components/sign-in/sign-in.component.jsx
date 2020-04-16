@@ -2,19 +2,9 @@ import React from 'react';
 
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
-import {
-    ButtonsBarContainer,
-    OrLineContainer,
-    SignInContainer,
-    SignInTitle,
-    SingInAsContainer
-} from './sign-in.styles';
+import {ButtonsBarContainer, OrLineContainer, SignInContainer, SignInTitle, SingInAsContainer} from './sign-in.styles';
 
-import {
-    // emailSignInStart,
-    signInWithGoogle,
-    // facebookSignInStart
-} from '../../firebase/firebase.utils';
+import {signInWithGoogle,} from '../../firebase/firebase.utils';
 
 class SignIn extends React.Component {
     constructor(props) {
@@ -85,10 +75,10 @@ class SignIn extends React.Component {
 }
 
 // const mapDispatchToProps = dispatch => ({
-    // googleSignInStart: () => dispatch(googleSignInStart()),
-    // facebookSignInStart: () => dispatch(facebookSignInStart()),
-    // emailSignInStart: (email, password) =>
-    //     dispatch(emailSignInStart({email, password}))
+// googleSignInStart: () => dispatch(googleSignInStart()),
+// facebookSignInStart: () => dispatch(facebookSignInStart()),
+// emailSignInStart: (email, password) =>
+//     dispatch(emailSignInStart({email, password}))
 // });
 
 export default SignIn;

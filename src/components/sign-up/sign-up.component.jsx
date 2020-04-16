@@ -6,12 +6,7 @@ import CustomButton from '../custom-button/custom-button.component';
 
 import {auth, createUserProfileDocument} from "../../firebase/firebase.utils";
 
-import {
-    SignUpContainer,
-    SignUpTitle,
-    SubDescriptionContainer,
-    TermsLink
-} from './sign-up.styles';
+import {SignUpContainer, SignUpTitle, SubDescriptionContainer, TermsLink} from './sign-up.styles';
 
 // import {signUpStart} from '../../redux/user/user.actions';
 
